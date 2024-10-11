@@ -1,0 +1,23 @@
+services:
+  glance:
+    image: "glanceapp/glance:latest"
+    restart: unless-stopped
+    container_name: glance
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/Users/sebastianobruni/glance/assets/:/app/assets/"
+      - "/Users/sebastianobruni/glance/glance.yml:/app/glance.yml"
+    ports:
+      - "8888:8080"
+    tty: true
+    stdin_open: true
+
+  py-http-server:
+    image: py-http-server
+    restart: unless-stopped
+    container_name: glance-extensions-server
+    ports:
+      - "12345:12345"
+    tty: true
+    stdin_open: true

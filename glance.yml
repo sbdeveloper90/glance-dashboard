@@ -1,0 +1,226 @@
+server:
+  assets-path: /app/assets
+theme:
+  background-color: 240 21 15
+  contrast-multiplier: 1.3
+  primary-color: 217 92 83
+  positive-color: 115 54 76
+  negative-color: 347 70 65
+  custom-css-file: /assets/my-style.css
+branding:
+  logo-text: SBDev90
+pages:
+  - name: Home
+    columns:
+      - size: small
+        widgets:
+          - type: clock
+            hour-format: 24h
+            timezones:
+              - timezone: Europe/London
+                label: London
+              - timezone: America/Los_Angeles
+                label: Los Angeles
+              - timezone: America/New_York
+                label: New York
+              - timezone: Asia/Tokyo
+                label: Tokyo
+
+          - type: calendar
+
+          - type: repository
+            repository: glanceapp/glance
+            pull-requests-limit: 5
+            issues-limit: 3
+            commits-limit: 3
+
+      - size: full
+        widgets:
+          - type: html
+            source: |
+              <div class="widget dotted-list-search-widget">
+                <div class="widget-header">
+                  <h4 class="color-primary">DuckDuckGo Implemented !Bangs</h4>
+                </div>
+                <div class="widget-content">
+                  <ul>
+                    <li>👉 "<span class="color-primary">!gh</span>": GitHub</li>
+                    <li>👉 "<span class="color-primary">!mdn</span>": Mozilla Developer Network</li>
+                    <li>👉 "<span class="color-primary">!r</span>": Reddit</li>
+                    <li>👉 "<span class="color-primary">!so</span>": Stack Overflow</li>
+                    <li>👉 "<span class="color-primary">!w</span>": Wikipedia</li>
+                    <li>👉 "<span class="color-primary">!yt</span>": YouTube</li>
+                  </ul>
+                </div>
+              </div>
+
+          - type: search
+            search-engine: duckduckgo
+            new-tab: true
+            bangs:
+              - title: GitHub
+                shortcut: "!gh"
+                url: https://github.com/search?q={QUERY}&type=repositories
+              - title: Mozilla Developer Network
+                shortcut: "!mdn"
+                url: https://developer.mozilla.org/en-US/search?q={QUERY}
+              - title: Reddit
+                shortcut: "!r"
+                url: https://www.reddit.com/search/?q={QUERY}&type=link
+              - title: Stack Overflow
+                shortcut: "!so"
+                url: https://stackoverflow.com/search?q={QUERY}
+              - title: Wikipedia
+                shortcut: "!w"
+                url: https://it.wikipedia.org/w/index.php?go=Vai&search={QUERY}&title=Speciale%3ARicerca&ns0=1
+              - title: YouTube
+                shortcut: "!yt"
+                url: https://www.youtube.com/results?search_query={QUERY}
+
+          - type: group
+            title: VIDEOS
+            define: &shared-properties-videos
+              style: grid-cards
+              collapse-after-rows: 2
+              limit: 12
+            widgets:
+              - type: videos
+                title: Morrolinux
+                channels:
+                  - UCnDDucQDLncrauOCmanCIgw # Morrolinux
+                <<: *shared-properties-videos
+
+              - type: videos
+                title: NetworkChuck
+                channels:
+                  - UC9x0AN7BWHpCDHSm9NiJFJQ # NetworkChuck
+                <<: *shared-properties-videos
+
+              - type: videos
+                title: John Hammond
+                channels:
+                  - UCVeW9qkBjo3zosnqUbG7CFw # John Hammond
+                <<: *shared-properties-videos
+
+              - type: videos
+                title: Jeff Geerling
+                channels:
+                  - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
+                <<: *shared-properties-videos
+
+              - type: videos
+                title: Techno Tim
+                channels:
+                  - UCOk-gHyjcWZNj3Br4oxwh0A # Techno Tim
+                <<: *shared-properties-videos
+
+          - type: group
+            widgets:
+              - type: rss
+                title: RSS | PuntoInformatico
+                limit: 7
+                collapse-after: 5
+                show-thumbnails: true
+                cache: 1h
+                feeds:
+                  - url: https://www.punto-informatico.it/feed/
+                    title: PuntoInformatico
+
+              - type: rss
+                title: RSS | MiaMammaUsaLinux
+                limit: 7
+                collapse-after: 5
+                show-thumbnails: true
+                cache: 1h
+                feeds:
+                  - url: https://www.miamammausalinux.org/feed/
+                    title: MiaMammaUsaLinux
+
+              - type: rss
+                title: RSS | HuddleMagazine
+                limit: 7
+                collapse-after: 5
+                show-thumbnails: true
+                cache: 1h
+                feeds:
+                  - url: https://www.huddle.org/feed/
+                    title: HuddleMagazine
+
+          - type: group
+            widgets:
+              - type: reddit
+                subreddit: unixporn
+                show-thumbnails: true
+                collapse-after: 5
+
+              - type: reddit
+                subreddit: selfhosted
+                show-thumbnails: true
+                collapse-after: 5
+
+      - size: small
+        widgets:
+          - type: weather
+            units: metric
+            hour-format: 24h
+            location: Pesaro, Italy
+
+          - type: monitor
+            cache: 1h
+            title: Wordpress
+            sites:
+              - title: COOP134
+                url: https://134.coop/
+              - title: ComfortHub
+                url: https://www.comforthub.it/
+              - title: DWE Elettronica
+                url: https://www.dwelettronica.it/
+              - title: Hygiene4Care
+                url: https://hygiene4care.com/
+              - title: Myeco
+                url: https://myeco.it/
+              - title: Papalini Spa
+                url: https://papalinispa.com/
+              - title: Parabolika
+                url: https://www.parabolika.it/
+              - title: Parabolika Piscine
+                url: https://parabolikapiscine.com/
+              - title: Qualifia
+                url: https://qualifia.it/
+
+          - type: markets
+            sort-by: name
+            markets:
+              - symbol: BTC-USD
+                name: Bitcoin USD
+              - symbol: NVDA
+                name: NVIDIA Corporation
+              - symbol: AAPL
+                name: Apple Inc.
+              - symbol: MSFT
+                name: Microsoft Corporation
+              - symbol: GOOGL
+                name: Alphabet Inc.
+              - symbol: AMD
+                name: Advanced Micro Devices, Inc.
+              - symbol: TSLA
+                name: Tesla, Inc.
+
+  - name: Curl
+    columns:
+      - size: full
+        widgets:
+          - type: extension
+            url: http://glance-extensions-server:12345
+            cache: 3h
+            allow-potentially-dangerous-html: true
+            parameters:
+              flag: wttr
+              location: Pesaro
+
+          - type: extension
+            url: http://glance-extensions-server:12345
+            cache: 3h
+            allow-potentially-dangerous-html: true
+            parameters:
+              flag: iss
